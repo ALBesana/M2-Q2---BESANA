@@ -39,14 +39,16 @@ sphere.position.set( -3, -3, 0 );
 scene.add( sphere );
 
 // Torus Geometry
-const torusGeometry = new THREE.TorusGeometry( 1.875, 2, 8, 5 );
+const torusGeometry = new THREE.TorusGeometry( 2, 0.5, 12, 48 );
 const torusMaterial = new THREE.MeshBasicMaterial( { color: 0x0000ff } );
 const torus = new THREE.Mesh(torusGeometry, torusMaterial);
-sphere.position.set( -3, 3, 0 );
+torus.position.set( 3, -3, 0 );
 scene.add( torus );
 
+// camera position 
 camera.position.z = 10;
 
+// Animation
 function animate() {
 
 	cube.rotation.x += 0.01;
@@ -60,6 +62,9 @@ function animate() {
 
 	sphere.rotation.x += 0.01;
 	sphere.rotation.y += 0.01;
+
+	torus.rotation.x += 0.01;
+	torus.rotation.y += 0.01;
 
 	renderer.render( scene, camera );
 
